@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable, of} from 'rxjs';
+import {delay} from 'rxjs/operators';
 
 @Component({
     selector: 'app-home',
@@ -6,11 +8,22 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-    items: any = [];
+    contentObservable: Observable<any[]>;
+    selectedValue = 'VALUE2';
+
+    constructor() {}
 
     ngOnInit() {
-        for (let i = 0; i < 30; i++) {
-            this.items.push(i);
-        }
+        const sampleData = [
+            {
+                'text': 'ITEM1',
+                'value': 'VALUE1'
+            },
+            {
+                'text': 'ITEM2',
+                'value': 'VALUE2'
+            }
+        ];
+        this.contentObservable = of(sampleData).pipe(delay(1000));
     }
 }

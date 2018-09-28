@@ -1,5 +1,16 @@
-<ion-content padding>
-  <ion-virtual-scroll [items]="items">
-    <app-custom-item [item]="item" *virtualItem="let item;"></app-custom-item>
-  </ion-virtual-scroll>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-select [value]="selectedValue">
+    <ion-select-option *ngFor="let item of contentObservable | async"
+                       [value]="item['value']">
+      {{item['text']}}
+    </ion-select-option>
+  </ion-select>
+
 </ion-content>

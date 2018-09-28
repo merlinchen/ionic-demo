@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import {CustomItem} from './custom-item.component';
 
 @NgModule({
   imports: [
@@ -19,6 +18,6 @@ import {CustomItem} from './custom-item.component';
       }
     ])
   ],
-  declarations: [HomePage, CustomItem]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
